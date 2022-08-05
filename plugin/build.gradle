@@ -9,6 +9,9 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 11
+targetCompatibility = 11
+
 /*
 confConfig {
     schemaFile.set file('src/main/resources/schema/Version.schema.json')
