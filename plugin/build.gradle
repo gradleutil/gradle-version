@@ -41,6 +41,20 @@ gradlePlugin {
     }
 }
 
+pluginBundle {
+    website = 'https://github.com/gradleutil/gradle-version'
+    vcsUrl = 'https://github.com/gradleutil/gradle-version'
+    description = 'Simple semver version bumper based on branch matching and git dirty or not'
+    tags = ['build-tool', 'versioning' ]
+
+    plugins {
+        gradleversion {
+            id = 'net.gradleutil.gradle-version'
+            displayName = 'Semver from Git status'
+        }
+    }
+}
+
 sourceSets {
     functionalTest {
     }
