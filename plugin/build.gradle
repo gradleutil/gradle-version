@@ -12,6 +12,8 @@ repositories {
 sourceCompatibility = 11
 targetCompatibility = 11
 
+group = 'net.gradleutil'
+
 /*
 confConfig {
     schemaFile.set file('src/main/resources/schema/Version.schema.json')
