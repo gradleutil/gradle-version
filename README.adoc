@@ -1,0 +1,3 @@
+= Gradle-Version
+
+Just a simple deal for bumping the version patch level if git doesn't match a specified branch
