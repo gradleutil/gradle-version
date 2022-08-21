@@ -72,7 +72,7 @@ class GradleVersionPlugin implements Plugin<Project> {
             gitDir = new File('../.git')
         }
         if (!gitDir.exists()) {
-            throw new GradleException("cannot locate .git dir")
+            gitDir = null
         }
         gitDir
     }
@@ -80,6 +80,9 @@ class GradleVersionPlugin implements Plugin<Project> {
     Version getVersionFromGit(String initialVersion) {
         Version version
         version = Version.valueOf(initialVersion)
+        if(!gitDir){
+            return version
+        }
         try {
             git = Grgit.open(dir: gitDir)
 

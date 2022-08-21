@@ -1,9 +1,33 @@
 package net.gradleutil.gradleversion
 
+import net.gradleutil.gradleversion.release.GitRelease
+import org.ajoberstar.grgit.Grgit
 import org.gradle.testfixtures.ProjectBuilder
+import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.TempDir
 
 class GradleVersionPluginTest extends Specification {
+    @Shared
+    @TempDir
+    private File tmpGitDir, tmpDirEmpty
+
+    @Shared
+    File originRepoDir, clonedRepoDir, originFile, clonedFile
+    @Shared
+    GitRelease gitRelease
+
+
+    def setupSpec() {
+        if (tmpGitDir.exists()) {
+            tmpGitDir.deleteDir()
+        }
+        def projectDir = Grgit.open().repository.rootDir.parentFile.parentFile.path
+        originRepoDir = new File(tmpGitDir, 'originRepo')
+        originFile = new File(originRepoDir, 'test_git.txt')
+        clonedRepoDir = new File(tmpGitDir, 'checkedOutRepo')
+        clonedFile = new File(clonedRepoDir, 'test_git.txt')
+    }
 
     def "plugin registers task"() {
         given:
