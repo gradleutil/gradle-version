@@ -1,6 +1,5 @@
 package net.gradleutil.gradleversion
 
-import net.gradleutil.gradleversion.release.GitRelease
 import org.ajoberstar.grgit.Grgit
 import org.gradle.testfixtures.ProjectBuilder
 import spock.lang.Shared
@@ -14,8 +13,6 @@ class GradleVersionPluginTest extends Specification {
 
     @Shared
     File originRepoDir, clonedRepoDir, originFile, clonedFile
-    @Shared
-    GitRelease gitRelease
 
 
     def setupSpec() {
