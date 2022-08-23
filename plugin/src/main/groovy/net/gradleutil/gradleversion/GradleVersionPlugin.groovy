@@ -61,16 +61,16 @@ class GradleVersionPlugin implements Plugin<Project> {
     File getGitDir() {
         File gitDir
         gitDir = new File(project.projectDir, '.git')
-        if (!gitDir.exists()) {
+        if (!gitDir.exists() || !gitDir.isDirectory()) {
             gitDir = new File(project.rootDir, '.git')
         }
-        if (!gitDir.exists()) {
+        if (!gitDir.exists() || !gitDir.isDirectory()) {
             gitDir = new File('.git')
         }
-        if (!gitDir.exists()) {
+        if (!gitDir.exists() || !gitDir.isDirectory()) {
             gitDir = new File('../.git')
         }
-        if (!gitDir.exists()) {
+        if (!gitDir.exists() || !gitDir.isDirectory()) {
             gitDir = null
         }
         gitDir
